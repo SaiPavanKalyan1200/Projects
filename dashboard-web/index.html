@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackular Attendance Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar card">
+        <div class="brand-block">
+          <div class="logo-mark" aria-hidden="true">
+            <span class="box one"></span>
+            <span class="box two"></span>
+            <span class="box three"></span>
+          </div>
+          <h1>STACKULAR</h1>
+        </div>
+
+        <div class="mode-switch">
+          <button id="btnSummary" class="active">Dashboard</button>
+          <button id="btnDetails">WFH &amp; Leaves</button>
+        </div>
+
+        <h2>Customer Success,<br />One stack at a time</h2>
+      </header>
+
+      <main id="summaryView" class="view-grid">
+        <aside class="card panel members-panel">
+          <h3>Team Members</h3>
+          <input id="memberSearch" type="search" placeholder="Search" />
+          <ul id="memberList" class="member-list"></ul>
+        </aside>
+
+        <section class="card panel chart-panel">
+          <h3 id="selectedMemberTitle">Abhitha Duddu - APPS135</h3>
+          <canvas id="barChart"></canvas>
+        </section>
+
+        <aside class="card panel year-panel">
+          <h3>Year</h3>
+          <label><input type="checkbox" /> 2025</label>
+          <label><input type="checkbox" checked /> 2026</label>
+          <div class="months">
+            <label><input type="checkbox" /> January</label>
+            <label><input type="checkbox" /> February</label>
+            <label><input type="checkbox" /> March</label>
+            <label><input type="checkbox" checked /> April</label>
+            <label><input type="checkbox" /> May</label>
+            <label><input type="checkbox" /> June</label>
+          </div>
+        </aside>
+
+        <section class="card panel kpis-panel">
+          <div class="kpi"><span>3</span><small>P</small></div>
+          <div class="kpi"><span>0</span><small>WFH</small></div>
+          <div class="kpi"><span>0</span><small>CL</small></div>
+          <div class="kpi"><span>0</span><small>SL</small></div>
+          <div class="kpi"><span>0</span><small>ML</small></div>
+          <div class="kpi"><span>0</span><small>PL</small></div>
+          <div class="kpi"><span>0</span><small>Remote</small></div>
+          <div class="kpi"><span>0</span><small>LWP</small></div>
+          <div class="kpi total"><span>3</span><small>Total Days</small></div>
+        </section>
+
+        <section class="card panel pie-panel">
+          <canvas id="pieChart"></canvas>
+        </section>
+      </main>
+
+      <main id="detailsView" class="details-view hidden card">
+        <div class="details-layout">
+          <aside class="panel year-panel slim">
+            <label><input type="checkbox" /> 2025</label>
+            <label><input type="checkbox" checked /> 2026</label>
+            <div class="months">
+              <label><input type="checkbox" /> January</label>
+              <label><input type="checkbox" /> February</label>
+              <label><input type="checkbox" /> March</label>
+              <label><input type="checkbox" checked /> April</label>
+              <label><input type="checkbox" /> May</label>
+              <label><input type="checkbox" /> June</label>
+              <label><input type="checkbox" /> July</label>
+              <label><input type="checkbox" /> August</label>
+              <label><input type="checkbox" /> September</label>
+              <label><input type="checkbox" /> October</label>
+              <label><input type="checkbox" /> November</label>
+              <label><input type="checkbox" /> December</label>
+            </div>
+          </aside>
+
+          <section class="panel table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>Team Members</th>
+                  <th>WFH</th>
+                  <th>CL</th>
+                  <th>SL</th>
+                  <th>ML</th>
+                  <th>PL</th>
+                  <th>LWP</th>
+                  <th>CO</th>
+                  <th>P</th>
+                  <th>Remote</th>
+                  <th>Total Days</th>
+                </tr>
+              </thead>
+              <tbody id="detailsTableBody"></tbody>
+            </table>
+          </section>
+        </div>
+
+        <footer>
+          WFH = Work From Home, CL = Casual Leave, SL = Sick Leave, ML = Maternity Leave,
+          PL = Paternity Leave, LWP = Leave Without Pay, CO = Compensatory, P = Present
+        </footer>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
