@@ -1,0 +1,234 @@
+:root {
+  --brand-blue: #2f40df;
+  --card-bg: #f5f5f5;
+  --text: #222;
+  --line: #252949;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, #5466ff, #2f40df 55%, #2938bb);
+}
+
+.page {
+  width: min(1460px, 98vw);
+  margin: 10px auto;
+}
+
+.card,
+.panel,
+.details-view {
+  background: var(--card-bg);
+  border: 2px solid #202546;
+  border-radius: 12px;
+}
+
+.topbar {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.brand-block {
+  display: grid;
+  gap: 8px;
+}
+
+.logo-mark {
+  width: 86px;
+  height: 76px;
+  position: relative;
+}
+
+.logo-mark .box {
+  position: absolute;
+  background: #dbe2ff;
+}
+
+.logo-mark .one { width: 54px; height: 18px; top: 0; left: 0; }
+.logo-mark .two { width: 20px; height: 58px; top: 0; right: 12px; }
+.logo-mark .three { width: 44px; height: 18px; bottom: 6px; left: 12px; }
+
+.brand-block h1 {
+  font-size: 36px;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 56px;
+  text-align: left;
+  line-height: 1.05;
+}
+
+.mode-switch {
+  display: flex;
+  gap: 10px;
+}
+
+.mode-switch button {
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid #b8c0ff;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mode-switch button.active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.view-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 390px 1fr 400px;
+  grid-template-areas:
+    "members chart chart"
+    "members year kpis"
+    "members year pie";
+}
+
+.panel {
+  padding: 10px;
+}
+
+.members-panel { grid-area: members; max-height: 660px; overflow: hidden; }
+.chart-panel { grid-area: chart; min-height: 315px; }
+.year-panel { grid-area: year; display: grid; align-content: start; gap: 10px; max-height: 320px; overflow: auto; }
+.kpis-panel { grid-area: kpis; display: grid; gap: 8px; grid-template-columns: repeat(3, minmax(92px, 1fr)); }
+.pie-panel { grid-area: pie; min-height: 270px; display: flex; align-items: center; justify-content: center; }
+
+h3 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 38px;
+}
+
+.members-panel input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-size: 28px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.member-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  max-height: 535px;
+  overflow: auto;
+}
+
+.member-list li {
+  padding: 8px;
+  border-radius: 7px;
+  border: 1px solid #e1e1e1;
+  font-size: 34px;
+}
+
+.member-list li.active {
+  border-color: #2276e3;
+  background: #e8f2ff;
+  font-weight: 700;
+}
+
+.year-panel label {
+  font-size: 34px;
+  display: block;
+}
+
+.months { padding-left: 22px; }
+
+.kpi {
+  border: 2px solid #26283f;
+  border-radius: 8px;
+  min-height: 88px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.kpi span { font-size: 56px; font-weight: 700; }
+.kpi small { font-size: 34px; font-weight: 700; color: #2c5ab7; }
+.kpi.total small { color: #2938bb; }
+
+.details-view {
+  margin-top: 14px;
+  padding: 10px;
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  gap: 14px;
+}
+
+.year-panel.slim {
+  max-height: 620px;
+  overflow: auto;
+}
+
+.table-panel {
+  overflow: auto;
+  max-height: 620px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 32px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #cbcbcb;
+  padding: 9px;
+  text-align: center;
+}
+
+td:first-child,
+th:first-child {
+  text-align: left;
+  font-weight: 700;
+}
+
+footer {
+  border-top: 2px solid #202546;
+  margin-top: 8px;
+  padding: 8px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hidden { display: none; }
+
+@media (max-width: 1200px) {
+  .topbar h2 { font-size: 30px; }
+  .brand-block h1 { font-size: 24px; }
+  h3 { font-size: 24px; }
+  .member-list li,.year-panel label,.members-panel input,table,.kpi small { font-size: 16px; }
+  .kpi span { font-size: 26px; }
+  .view-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "members" "chart" "year" "kpis" "pie";
+  }
+}
